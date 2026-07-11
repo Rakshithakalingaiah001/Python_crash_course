@@ -84,3 +84,326 @@ french_restaurant.describe_restaurant()
 indian_restaurant = Restaurant('Quilon','Indian cuisine')
 
 indian_restaurant.describe_restaurant()
+
+
+
+
+#Exercise 03
+#User
+
+class User :
+    """create a class User."""
+
+    def __init__(self,first_name,last_name,user_id,age,country):
+        """initialize parameters."""
+
+        self.first_name = first_name
+        self.last_name = last_name
+        self.user_id = user_id
+        self.age = age
+        self.country = country
+
+    def describe_user(self):
+        """User description."""
+
+        print(f"User Details:")
+        print(f"First name: {self.first_name}")
+        print(f"Last name: {self.last_name}")
+        print(f"User ID: {self.user_id}")
+        print(f"Age: {self.age}")
+        print(f"Country: {self.country}")
+
+
+    def greet_user(self):
+        """Great the user.""" 
+          
+        print("Thank you for providing the details.")  
+        print(f"Welcome Aboard {self.first_name} {self.last_name}.")
+        print()  #This is gonna leave an empty line after every instance is printed.
+
+#Instance 01
+user_1 = User('Rakshitha','Kalingaiah','RK001',25,'India')
+"""Create an Instance."""
+
+#calling the two methods for this instance.
+user_1.describe_user() 
+
+user_1.greet_user()
+
+
+#Instance 02
+user_2 = User('Poojitha','Kalingaiah',"PK004",21,'India')
+
+user_2.describe_user()
+
+user_2.greet_user()
+
+#Instance 03
+user_3 = User('Yashwant','Anusuya','YA006',19,'India')
+
+user_3.describe_user()
+
+user_3.greet_user()
+
+
+#Instance 04
+user_4 = User('Siddharth','Anusuya','SA010',15,'India')
+
+user_4.describe_user()
+
+user_4.greet_user()
+
+
+#Instance 05
+user_5 = User('Dhanveer','Kannadiga','DK023',3,'India')
+
+user_5.describe_user()
+
+user_5.greet_user()
+
+
+
+#Exercise 04
+#Number served
+
+#Explanation:
+#In this exercise we will see three ways of modifying an attribute values.
+
+#   METHOD 1:
+#Changing the value directly through an instance and assigning a default value.
+# Do not assign the default attribute in the __init__() method.
+# Assign default attribute directly in the attributes.
+
+
+class Restaurant:
+    """Creating a class named Restaurant."""
+
+    def __init__(self,restaurant_name,cuisine_type):  #when giving an default attribute we should not assign it in the init method.
+        """Initialize the restaurant's name and cuisine type."""
+
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 200  #this is a Default attribute.
+
+    def describe_restaurant(self):
+        """Display the restaurant's name and cuisine type."""
+
+        print(f"Restaurant name: {self.restaurant_name}")
+        print(f"Cuisine type: {self.cuisine_type}")
+        print(f"Number of people restaurant has served: {self.number_served}")
+
+    def open_restaurant(self):
+        """Display a message indicating that the restaurant is open."""
+
+        print(f"{self.restaurant_name} is OPEN.")
+
+restaurant = Restaurant('Meghana','Non-veg')
+"""Create Instance"""
+
+restaurant.describe_restaurant()
+restaurant.open_restaurant()
+
+
+#   METHOD 02:
+
+class Restaurant:
+    """Creating a class named Restaurant."""
+
+
+    def __init__(self,restaurant_name,cuisine_type):  
+        """Initialize the restaurant's name and cuisine type."""
+
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        """Display the restaurant's name and cuisine type."""
+
+        print(f"Restaurant name: {self.restaurant_name}")
+        print(f"Cuisine type: {self.cuisine_type}")
+        print(f"Number of people restaurant has served: {self.number_served}")
+
+    def set_number_served(self, number_served):    #Here we created a parameter number_served.
+        """Set the number of customers served."""
+
+        self.number_served = number_served #and this tells python to replace parameter with the value we have called the function in.
+
+    def open_restaurant(self):
+        """Display a message indicating that the restaurant is open."""
+
+
+restaurant = Restaurant('Meghana','Non-veg')
+"""Create Instance"""
+
+restaurant.describe_restaurant()
+print()
+restaurant.set_number_served(150) #this replaces the value 0 to 150.
+restaurant.describe_restaurant()  
+print()
+restaurant.open_restaurant()
+
+
+#Method 02:
+#Example exercise
+class Restaurant:
+    """Creating a class named Restaurant."""
+
+
+    def __init__(self,restaurant_name,cuisine_type):  
+        """Initialize the restaurant's name and cuisine type."""
+
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.working_servers = 0
+
+    def describe_restaurant(self):
+        """Display the restaurant's name and cuisine type."""
+
+        print(f"Restaurant name: {self.restaurant_name}")
+        print(f"Cuisine type: {self.cuisine_type}")
+        print(f"Working servers: {self.working_servers}")
+
+
+    def servers(self,working_servers):
+
+        self.working_servers = working_servers  
+
+
+    def open_restaurant(self):
+        """Display a message indicating that the restaurant is open."""
+
+
+r_1 = Restaurant('Meghana foods','Non-veg')
+
+r_1.describe_restaurant()
+print()
+r_1.servers(20)  #Remember always call the function with the attributes after modifying the value of an attribute through method. 
+r_1.describe_restaurant()
+r_1.open_restaurant()
+
+
+
+#   METHOD 03:
+#Modifying the attributes through increment.
+class Restaurant:
+    """Creating a class named Restaurant."""
+
+
+    def __init__(self,restaurant_name,cuisine_type):  
+        """Initialize the restaurant's name and cuisine type."""
+
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.working_servers = 0
+        self.people_served = 6
+
+    def describe_restaurant(self):
+        """Display the restaurant's name and cuisine type."""
+
+        print(f"Restaurant name: {self.restaurant_name}")
+        print(f"Cuisine type: {self.cuisine_type}")
+        print(f"Working servers: {self.working_servers}")
+        print(f"Food served to people: {self.people_served}")
+
+    def servers(self,working_servers):
+        """Number of servers."""
+
+        self.working_servers = working_servers  
+
+
+    def served_food(self,people_served): #here we increment the people who have been served food.
+        """Number of food served."""
+
+        self.people_served += people_served #this takes the existing attribute value and if we assign new value to the parameter whenever we call the function-
+                                               #-then it increment the total value.
+
+    def open_restaurant(self):
+        """Display a message indicating that the restaurant is open."""
+       
+        print("Restaurant's OPEN.")
+
+
+r_1 = Restaurant('Meghana foods','Non-veg')
+
+r_1.describe_restaurant()
+r_1.open_restaurant()
+print()
+r_1.servers(20)  #Remember always call the function with the attributes after modifying the value of an attribute through method. 
+r_1.served_food(40)  #here we are calling the served method.
+r_1.describe_restaurant()
+r_1.open_restaurant()
+print()
+r_1.servers(40)
+r_1.served_food(60)
+r_1.describe_restaurant()
+r_1.open_restaurant()
+
+
+
+#Exercise 05
+#User
+
+class User :
+    """create a class User."""
+
+    def __init__(self,first_name,last_name,user_id,age,country): 
+        """initialize parameters."""
+
+        self.first_name = first_name
+        self.last_name = last_name
+        self.user_id = user_id
+        self.age = age
+        self.country = country
+        self.login_attempts = 0 #Creating new attribute login_attempts.
+
+
+    def describe_user(self):
+        """User description."""
+
+        print(f"User Details:")
+        print(f"First name: {self.first_name}")
+        print(f"Last name: {self.last_name}")
+        print(f"User ID: {self.user_id}")
+        print(f"Age: {self.age}")
+        print(f"Country: {self.country}")
+
+
+    def increment_login_attempts(self):  #Method to increment login_attempts.
+        """Method to increment the login_attempts."""
+      
+        self.login_attempts += 1 
+
+
+    def reset_login_attempts(self): #method to reset the login_attempts.
+        """Method to reset the login_attempts."""
+
+        self.login_attempts = 0
+    
+
+
+    def greet_user(self):
+        """Great the user.""" 
+          
+        print("Thank you for providing the details.")  
+        print(f"Welcome Aboard {self.first_name} {self.last_name}.")
+        print()  #This is gonna leave an empty line after every instance is printed.
+
+#Instance 01
+user_1 = User('Rakshitha','Kalingaiah','RK001',25,'India')
+"""Create an Instance."""
+
+#calling the two methods for this instance.
+user_1.describe_user() 
+
+user_1.increment_login_attempts()
+
+print(f"Login attempts: {user_1.login_attempts}")
+
+user_1.reset_login_attempts()
+
+print(f"Login attempts after reset: {user_1.login_attempts}")
+
+user_1.greet_user()
+
+
