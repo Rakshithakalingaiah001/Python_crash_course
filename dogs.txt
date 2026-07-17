@@ -1,0 +1,5 @@
+Dogs breed name:
+
+1. Bernese mountain
+2. Great dane
+3. Alaskan malamute
